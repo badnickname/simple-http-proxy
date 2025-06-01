@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleProxy", "SimpleProxy\SimpleProxy.csproj", "{F3DAA874-56A1-4392-94D2-AA4A0F106F84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleProxy.Core", "SimpleProxy.Core\SimpleProxy.Core.csproj", "{B25DE030-2F67-4DDF-AF42-FF0B7A341895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleProxy.Js", "SimpleProxy.Js\SimpleProxy.Js.csproj", "{3427DBE6-C193-4778-A667-D544B181F23F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{F3DAA874-56A1-4392-94D2-AA4A0F106F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DAA874-56A1-4392-94D2-AA4A0F106F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DAA874-56A1-4392-94D2-AA4A0F106F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25DE030-2F67-4DDF-AF42-FF0B7A341895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25DE030-2F67-4DDF-AF42-FF0B7A341895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25DE030-2F67-4DDF-AF42-FF0B7A341895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25DE030-2F67-4DDF-AF42-FF0B7A341895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3427DBE6-C193-4778-A667-D544B181F23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3427DBE6-C193-4778-A667-D544B181F23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3427DBE6-C193-4778-A667-D544B181F23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3427DBE6-C193-4778-A667-D544B181F23F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
