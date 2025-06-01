@@ -19,6 +19,7 @@ var pac = builder.Configuration.GetValue<string>("pac");
 if (string.IsNullOrEmpty(pac)) throw new SimpleProxyException("Define path to PAC file via [ --pac filename.js ]");
 if (port == 0) throw new SimpleProxyException("Define port of proxy via [ --port 1234 ]");
 
+builder.Services.AddWindowsService(options => options.ServiceName = "SimpleProxy");
 builder.Services.AddSimpleProxy(options =>
 {
     options.Timeout = timeout ?? 5;
