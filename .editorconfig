@@ -1,0 +1,5 @@
+[*.cs]
+max_line_length = 175
+csharp_style_expression_bodied_methods = true:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_indexers = true:suggestion
