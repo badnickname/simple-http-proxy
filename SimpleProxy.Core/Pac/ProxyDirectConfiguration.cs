@@ -3,7 +3,10 @@ using System.Text;
 
 namespace SimpleProxy.Core.Pac;
 
-public sealed class ProxyDirectConfiguration : IProxyPolicy
+/// <summary>
+///     Прямое подключение к удаленному хосту
+/// </summary>
+internal sealed class ProxyDirectConfiguration : IProxyPolicy
 {
     public async Task<Socket> ConnectAsync(Socket socket, PolicyContext context, Memory<byte> memory, CancellationToken token = default)
     {

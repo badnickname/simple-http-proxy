@@ -7,7 +7,12 @@ namespace SimpleProxy.Core;
 
 public static class SimpleProxyExtensions
 {
-    public static IServiceCollection AddSimpleProxy(this IServiceCollection services, Action<ProxyConfiguration>? callback = null)
+    /// <summary>
+    ///     Добавить HTTP-прокси
+    /// </summary>
+    /// <remarks>Требуется реализация IProxyAutoConfiguration</remarks>
+    /// <seealso cref="SimpleProxy.Core.Pac.IProxyAutoConfiguration"/>
+    public static IServiceCollection AddSimpleProxy(this IServiceCollection services, Action<ProxyServerConfiguration>? callback = null)
     {
         services.Configure(callback ?? (p =>
         {
@@ -15,7 +20,7 @@ public static class SimpleProxyExtensions
             p.Timeout = 5;
         }));
         services.AddHostedService<ProxyWorker>();
-        services.AddTransient(provider => new TcpListener(IPAddress.Any, provider.GetService<IOptions<ProxyConfiguration>>()!.Value.Port));
+        services.AddTransient(provider => new TcpListener(IPAddress.Any, provider.GetService<IOptions<ProxyServerConfiguration>>()!.Value.Port));
         services.AddTransient<HttpListener>();
         return services;
     }

@@ -4,6 +4,9 @@ using SimpleProxy.Core.Pac;
 
 namespace SimpleProxy.Core;
 
+/// <summary>
+///     Сервис для получения новых подключений к прокси
+/// </summary>
 internal sealed class HttpListener(TcpListener listener, ILogger<HttpTunnel> logger) : IDisposable
 {
     public void Start() => listener.Start();

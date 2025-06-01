@@ -2,7 +2,10 @@
 
 namespace SimpleProxy.Core.Pac;
 
-public sealed class ProxyHttpConfiguration : IProxyPolicy
+/// <summary>
+///     Подключение через прокси к удаленному хосту
+/// </summary>
+internal sealed class ProxyHttpConfiguration : IProxyPolicy
 {
     public async Task<Socket> ConnectAsync(Socket socket, PolicyContext context, Memory<byte> memory, CancellationToken token = default)
     {

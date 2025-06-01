@@ -5,6 +5,9 @@ using SimpleProxy.Core.Pac;
 
 namespace SimpleProxy.Js;
 
+/// <summary>
+///     Реализация IProxyAutoConfiguration с JS функцией
+/// </summary>
 internal sealed class ProxyAutoConfiguration(IOptions<SimpleProxyJsSettings> options, ILogger<IProxyAutoConfiguration> logger) : IProxyAutoConfiguration, IDisposable
 {
     private readonly V8ScriptEngine _engine = new();
@@ -21,7 +24,7 @@ internal sealed class ProxyAutoConfiguration(IOptions<SimpleProxyJsSettings> opt
             if (strs is null || strs.Length == 0)
             {
                 logger.LogInformation("Pac: direct for {Host}", context.Host);
-                return new ProxyDirectConfiguration();
+                return IProxyAutoConfiguration.CreateDirect();
             }
 
             if (strs.Length > 1)
@@ -29,17 +32,17 @@ internal sealed class ProxyAutoConfiguration(IOptions<SimpleProxyJsSettings> opt
                 logger.LogInformation("Pac: proxy to {ProxyHost}:{ProxyPort} for {Host}", strs[0], strs[1], context.Host);
                 context.ProxyHost = strs[0];
                 context.ProxyPort = int.Parse(strs[1]);
-                return new ProxyHttpConfiguration();
+                return IProxyAutoConfiguration.CreateHttpProxy();
             }
 
             logger.LogInformation("Pac: proxy to {ProxyHost}:{ProxyPort} for {Host}", strs[0], 80, context.Host);
             context.ProxyHost = strs[0];
             context.ProxyPort = 80;
-            return new ProxyHttpConfiguration();
+            return IProxyAutoConfiguration.CreateHttpProxy();
         }
 
         logger.LogInformation("Pac: direct for {Host}", context.Host);
-        return new ProxyDirectConfiguration();
+        return IProxyAutoConfiguration.CreateDirect();
     }
 
     private string GetCode()

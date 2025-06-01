@@ -6,6 +6,9 @@ using SimpleProxy.Core.Pac;
 
 namespace SimpleProxy.Core;
 
+/// <summary>
+///     Прокси тунель до удаленного хоста
+/// </summary>
 internal sealed class HttpTunnel(Socket socket, ILogger<HttpTunnel> logger, PolicyContext context) : IDisposable
 {
     private readonly byte[] _buffer = new byte[65535];

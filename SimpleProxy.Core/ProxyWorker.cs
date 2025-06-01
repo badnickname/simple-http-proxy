@@ -5,7 +5,10 @@ using SimpleProxy.Core.Pac;
 
 namespace SimpleProxy.Core;
 
-internal sealed class ProxyWorker(HttpListener listener, IOptions<ProxyConfiguration> options, ILogger<ProxyWorker> logger, IProxyAutoConfiguration pac) : BackgroundService
+/// <summary>
+///     Воркер для создания новых туннелей
+/// </summary>
+internal sealed class ProxyWorker(HttpListener listener, IOptions<ProxyServerConfiguration> options, ILogger<ProxyWorker> logger, IProxyAutoConfiguration pac) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
